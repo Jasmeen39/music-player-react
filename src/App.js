@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {useState} from "react";
 import { SongList } from "./MyComponents/SongList";
@@ -39,18 +39,13 @@ function App() {
       <p>
         <strong>Now Playing:</strong> {songs[CurrentSongIndex].title} by {songs[CurrentSongIndex].artist}
       </p>
-      <audio controls src={songs[CurrentSongIndex].source}
-        onEnded={handlenext}
-        autoPlay
-      ></audio>
-
-     
-      <SongList songs = {songs}/>
+      
       <AudioPlayer 
       currentSong= {songs[CurrentSongIndex]}
       onNext={handlenext}
       onPrev={handleprev}
       />
+      <SongList songs = {songs}/>
 
     </div>
   );
