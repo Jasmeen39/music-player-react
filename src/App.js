@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
 import { SongList } from "./MyComponents/SongList";
+import { AudioPlayer } from "./MyComponents/AudioPlayer";
 
 function App() {
   const songs = [
@@ -42,8 +43,14 @@ function App() {
         onEnded={handlenext}
         autoPlay
       ></audio>
+
      
       <SongList songs = {songs}/>
+      <AudioPlayer 
+      currentSong= {songs[CurrentSongIndex]}
+      onNext={handlenext}
+      onPrev={handleprev}
+      />
 
     </div>
   );
