@@ -2,7 +2,7 @@ import React from 'react'
 
 export const AudioPlayer = ({ currentSong, onNext, onPrev }) => {
     return (
-        <div className="Audio Player">
+        <div className="audio-player">
 
             <audio
                 controls
@@ -12,7 +12,7 @@ export const AudioPlayer = ({ currentSong, onNext, onPrev }) => {
             ></audio>
 
             <div className="Player Button" style={{ marginTop: "10px" }}>
-                <button onClick={onPrev}>Prev</button>
+                <button onClick={onPrev} style={{marginRight:"10px"}}>Prev</button>
                 <button onClick={onNext}>Next</button>
             </div>
 

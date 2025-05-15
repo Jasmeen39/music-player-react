@@ -1,7 +1,11 @@
 import React from 'react'
 
-export const SongInfo = () => {
+export const SongInfo = ({song}) => {
   return (
-    <div>SongInfo</div>
+    <div className="SongInfo">
+     <strong >Now Playing:</strong>
+     <p>Song:{song.title}</p>
+     <p>Artist:{song.artist}</p>
+    </div>
   )
 }
