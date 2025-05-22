@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Playlist = ({ addSongByName, playlist, removeFromPlaylist, onSelectSong }) => {
+export const Playlist = ({ addSongByName, playlist, removeFromPlaylist, handleSelectedSong,toggleLike,likedsongs }) => {
 
     const [title, setTitle] = useState("");
 
@@ -30,12 +30,17 @@ export const Playlist = ({ addSongByName, playlist, removeFromPlaylist, onSelect
             ) : (
                 playlist.map((song, index) => (
                     <div key={index} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px', cursor: "pointer" }}>
-                        <span onClick={() => onSelectSong(index)}>
+                        <span onClick={() => handleSelectedSong(song)}>
                             {index + 1}. {song.title} — {song.artist}
                         </span>
+                        <div>
                         {removeFromPlaylist && (
                             <button onClick={() => removeFromPlaylist(song)}>Remove</button>
                         )}
+                        <button onClick={() => toggleLike(song)}>
+                        {likedsongs.some(s => s.title === song.title) ? "💔" : "❤️"}
+                        </button>
+                        </div>
                     </div>
                 ))
             )}
